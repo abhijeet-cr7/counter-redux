@@ -1,26 +1,19 @@
-import {useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
-import {addNumber, subNumber} from './redux/actions/numberActions';
+import {BrowserRouter as Router ,Routes, Route} from 'react-router-dom';
+import CompOne from './components/CompOne';
+import CompTwo from './components/CompTwo';
+import CompThree from './components/CompThree';
 
 function App() {
-  const count = useSelector((state) => state.arithmeticSpan.count);
-  console.log(count);
-  const dispatch = useDispatch();
-  
-  const addSpan = () => {
-  console.log(count);
-  dispatch(addNumber(count));
-  }
-  const subSpan = () => {
-  dispatch(subNumber(count));
-  }
-
   return (
     <div className="App">
-    <button onClick={addSpan}>+</button>
-    <button onClick={subSpan}>-</button>
-    <span>{count}</span>
+    <Router>
+    <Routes>
+      <Route path="/" exact element={<CompOne />}></Route>
+      <Route path="/Two" exact element={<CompTwo />}></Route>
+      <Route path="/Three" exact element={<CompThree />}></Route>
+    </Routes>
+    </Router>
     </div>
   );
 }

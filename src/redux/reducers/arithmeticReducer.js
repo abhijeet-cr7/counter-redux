@@ -6,6 +6,7 @@ const initialState = {
 
 export const arithmeticReducer = (state=initialState, {type, payload}) => {
     console.log(state);
+    
     console.log('****reducerCount');
     switch(type)
     {
